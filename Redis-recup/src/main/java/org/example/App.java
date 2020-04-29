@@ -36,7 +36,7 @@ public class App
     }
     public static String getImage(String date)
     {
-        RMap<String, String> map = jedis.getMap("simpleMap");
+        RMap<String, String> map = jedis.getLocalCachedMap("simpleMap");
         String mapValue = map.get(date + "-image");
         System.out.println(mapValue);
         return mapValue;
@@ -44,14 +44,14 @@ public class App
     }
     public static String getTitre(String date)
     {
-        RMap<String, String> map = jedis.getMap("anyMap");
+        RMap<String, String> map = jedis.getLocalCachedMap("anyMap");
         String mapValue = map.get(date + "-title");
         System.out.println(mapValue);
         return mapValue;
     }
     public static String getExplanation(String date)
     {
-        RMap<String, String> map = jedis.getMap(date + "-explanation");
+        RMap<String, String> map = jedis.getLocalCachedMap(date + "-explanation");
         String mapValue = map.get(date + "-explanation");
         System.out.println(mapValue);
         return mapValue;
